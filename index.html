@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <div class="tab-btn active">Moskow</div>
+        <div class="tab-btn">Washington</div>
+        <div class="tab-btn">Beijing</div>
+      </div>
+      <div class="tab__item active">
+        <h2>Moskow</h2>
+        <p>Moskow is the capital city of Russia</p>
+      </div>
+      <div class="tab__item">
+        <h2>Washington</h2>
+        <p>Washington is the capital city of USA</p>
+      </div>
+      <div class="tab__item">
+        <h2>Beijing</h2>
+        <p>Beijing is the capital city of China</p>
+      </div>
+    </div>
+    <script>
+      "use strict";
+
+      function initTabs() {
+        let tabBtns = document.querySelectorAll(".tab-btn"),
+          tabItems = document.querySelectorAll(".tab__item");
+
+        tabBtns.forEach((item, index) => {
+          item.addEventListener("click", () => {
+            tabBtns.forEach((el, allTabsIndex) => {
+              el.classList.remove("active");
+              tabItems[allTabsIndex].classList.remove("active");
+            });
+            item.classList.add("active");
+            tabItems[index].classList.add("active");
+          });
+        });
+      }
+      initTabs();
+    </script>
+  </body>
+</html>
